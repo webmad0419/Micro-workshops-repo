@@ -1,7 +1,12 @@
 
 // Variables declaradas FUERA de window.onscroll
 let scrollY,
-    mobiles = document.querySelectorAll('.mobile-inertia')
+    mobiles = document.querySelectorAll('.mobile-inertia'),
+    messages = document.querySelectorAll('.message-inertia'),
+    slider = document.querySelector('.slider-track'),
+    mouseInertia = document.querySelectorAll('.mouse-inertia'),
+    darkBg = document.querySelector('.bg-dark')
+
 
 
 // Plugin Vivus SVG para trazado de paths
@@ -43,8 +48,45 @@ window.onscroll = () => {
         mobiles[0].style.transform = `translateX(${mobiles[0].getBoundingClientRect().top * .2}px)`
         mobiles[1].style.transform = `translateX(${mobiles[1].getBoundingClientRect().top * .3}px)`
     }
+
+
+
+    // Message box transitions
+    if (isInViewport(document.querySelector('.facts'))) {
+        messages[0].style.transform = `translate(${-messages[0].getBoundingClientRect().top * .2}px, ${messages[0].getBoundingClientRect().top * .1}px)`
+        messages[1].style.transform = `translate(${messages[1].getBoundingClientRect().top * .1}px, ${messages[1].getBoundingClientRect().top * .05}px)`
+        messages[2].style.transform = `translate(${messages[2].getBoundingClientRect().top * .3}px, ${-messages[2].getBoundingClientRect().top * .05}px)`
+    }
+
+
+
+    // Isometric slider transform
+    (isInViewport(document.querySelector('.join'))) ?
+        slider.style.transform = `translateX(${slider.getBoundingClientRect().top}px)` :
+        null;
+
+
+
+    (isInViewport(document.querySelector('.dark-background'))) ?
+        darkBg.style.opacity = 1 :
+        darkBg.style.opacity = 0;
+
+
+
+
+
 }
 
+
+
+// Mobile screens inertia
+
+document.querySelector('.contact').onmousemove = e => {
+    mouseInertia[0].style.transform = `translate(${e.x * .03}px, ${e.y * .03}px)`
+    mouseInertia[1].style.transform = `translate(${e.x * .09}px, ${e.y * .09}px)`
+    mouseInertia[2].style.transform = `translate(${e.x * .15}px, ${e.y * .15}px)`
+    mouseInertia[3].style.transform = `translate(${e.x * .21}px, ${e.y * .21}px)`
+}
 
 
 

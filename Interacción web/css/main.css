@@ -175,11 +175,11 @@ h2 + hr {
 }
 
 .screen-scene.visible  img:nth-child(2) {
-    transform:  translateZ(60px)
+    transform:  translateZ(100px)
 }
 
 .screen-scene.visible  img:nth-child(3) {
-    transform: translateZ(120px)
+    transform: translateZ(200px)
 }
 
 
