@@ -1,11 +1,16 @@
+// Variables
 $menu-height: 80px;
 $base-color: #505050;
 $border-dark: rgba( $base-color, .5 );
 $back-img-path: "../images/backgrounds/";
+
+// Maps
 $text-size: ("lg": 1.5em, "md": 1em, "sm": .8em);
 $text-color: ('bright': #888, 'dark': #222);
 $icon-size: ("lg": 3em, "md": 2em, "sm": 1em);
 
+
+// Bucle
 @each $name, $size in $icon-size {
   .icon-#{$name} {
     font-size: #{random(2)}em;
@@ -16,8 +21,8 @@ $icon-size: ("lg": 3em, "md": 2em, "sm": 1em);
 
 body {
   font: 300 .9em "Lato", sans-serif;
-  color: map-get($text-color, 'dark');
-  background-color: rgb(random(255),random(255),random(255))
+  color: map-get($text-color, 'dark');                          // Uso de función map-get()
+  background-color: rgb(random(255),random(255),random(255))    // Uso de función random()
 }
 
 a {
@@ -68,7 +73,7 @@ a {
 
 .hero {
   height: 100vh;
-  background: url(#{$back-img-path}hero-back.jpg) no-repeat center / cover;
+  background: url(#{$back-img-path}hero-back.jpg) no-repeat center / cover;   // Interpolación
   padding-top: $menu-height;
 
   hr {
