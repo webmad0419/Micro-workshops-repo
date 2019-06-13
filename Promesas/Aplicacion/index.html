@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<title>Localizador de pedidos</title>
+	<meta charset="UTF8">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+</head>
+
+<body>
+	<main>
+		<form autocomplete="off" id="form">
+
+			<h1>&bull; Preparar pedido &bull;</h1>
+			<span><i class="fas fa-utensils"></i></span>
+
+			<fieldset>
+				<label>Número de pedido:
+					<input type="text" id="order">
+				</label>
+			</fieldset>
+
+			<section>
+				<p id="orderStatus">Introduce un número de pedido.</p>
+				<p id="result"></p>
+				<p id="errorMessage"></p>
+			</section>
+
+			<input type="submit" value="Consultar">
+
+		</form>
+	</main>
+
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+
+</body>
+
+</html>

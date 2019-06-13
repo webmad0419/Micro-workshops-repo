@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>EJEMPLO</title>
+	<meta charset="utf-8">
+
+</head>
+
+<body>
+
+	<script>
+
+		const promesaInicial = new Promise((resolve, reject) => {
+
+			const valor = "uno ";
+			valor ? resolve(valor) : reject(Error("No se recibió el primer valor"));
+
+		});
+
+
+
+		const segundaPromesa = valor => {
+
+			return new Promise((resolve, reject) => {
+
+				setTimeout(() => {
+					//const segundoValor = undefined;
+					const segundoValor = valor + "dos ";
+					segundoValor ? resolve(segundoValor) : reject(Error("No se recibió el segundo valor"));
+				}, 3000)
+
+			});
+		}
+
+
+
+		const terceraPromesa = valor => {
+
+			return new Promise((resolve, reject) => {
+
+				const tercerValor = valor + "tres";
+				tercerValor ? resolve(tercerValor) : reject(Error("No se recibió el tercer valor"));
+
+			});
+		}
+
+
+
+		promesaInicial
+			.then(valorInicial => segundaPromesa(valorInicial))
+			.then(segundoValor => terceraPromesa(segundoValor))
+			.then(tercerValor => console.log(`Resultado final: ${tercerValor}`))
+			.catch(error => console.log(`Promesa fallida: ${error.message}`))
+
+
+	</script>
+
+</body>
+
+</html>
