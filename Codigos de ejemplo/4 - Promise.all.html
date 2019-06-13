@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>EJEMPLO</title>
+	<meta charset="utf-8">
+
+</head>
+
+<body>
+
+	<script>
+
+
+		const primeraPromesa = new Promise((resolve, reject) => {
+			setTimeout(() => { resolve('uno') }, 1000);
+		});
+
+		const segundaPromesa = new Promise((resolve, reject) => {
+			setTimeout(() => { resolve('dos') }, 3000);
+		});
+
+		const terceraPromesa = new Promise((resolve, reject) => {
+			setTimeout(() => { resolve('tres') }, 2000);
+			//setTimeout(()=>{ reject('¡OJO! No tenemos potaje')}, 2000); 				
+		});
+
+		const cuartaPromesa = new Promise((resolve, reject) => {
+			setTimeout(() => { resolve('cuatro') }, 4000);
+		});
+
+
+
+		Promise.all([primeraPromesa, segundaPromesa, terceraPromesa, cuartaPromesa])
+			.then(valores => { console.log(`Promesa conjunta resuelta: ${valores}`) })
+			.catch(error => { console.error(`Promesa conjunta rechazada: ${error}`) });
+
+
+
+	</script>
+
+</body>
+
+</html>

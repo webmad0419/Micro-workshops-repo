@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Promesas ES6</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="src/favicon2.png">
+    <link rel="stylesheet" href="src/bootstrap.min.css">
+    <link rel="stylesheet" href="src/simplebar.css">
+    <link rel="stylesheet" href="src/style.css">
+</head>
+
+<body>
+  <div id="wrap" class="boxed ">
+    <div class="grey-bg">
+
+      <header id="nav" class="header header-1 no-transparent mobile-no-transparent">
+        <div class="header-wrapper">
+          <div class="container-m-30 clearfix">
+            <div class="logo-row">
+              <div class="logo-container-2">
+                <div class="logo-2">
+                  <a href="#" class="clearfix"><img src="src/logo.png" class="logo-img" alt="Logo"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="page-title-cont page-title-small grey-light-bg">
+        <div class="relative container align-left">
+          <div class="row">
+            <div class="col-md-8">
+              <h1 class="page-title">Promesas ES6</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container bs-docs-container p-140-cont">
+        <div class="row">
+          <div class="col-md-3">
+            <nav id="sidebar-stiky" class="bs-sidebar hidden-xs hidden-sm clearfix">
+              <h4>CONTENIDOS</h4>
+              <ul id="nav-sidebar" class="nav bs-sidenav blog-categories">
+                  <li><a href="#i1"><span class="blog-cat-icon"><i class="fa fa-angle-right"></i></span>Introducción</a></li>
+                  <li><a href="#i2"><span class="blog-cat-icon"><i class="fa fa-angle-right"></i></span>Declaración</a></li>
+                  <li><a href="#i3"><span class="blog-cat-icon"><i class="fa fa-angle-right"></i></span>Consumo</a></li>
+                  <li><a href="#i4"><span class="blog-cat-icon"><i class="fa fa-angle-right"></i></span>Concatenación</a></li>
+                  <li><a href="#i5"><span class="blog-cat-icon"><i class="fa fa-angle-right"></i></span>Otros métodos</a></li>
+                  <li><a href="#i6"><span class="blog-cat-icon"><i class="fa fa-angle-right"></i></span>FYI</a></li>
+                  <li><a href="#i7"><span class="blog-cat-icon"><i class="fa fa-angle-right"></i></span>ES7</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <main class="col-md-9 contenido">
+
+            <section id="i1" class="bs-docs-section mb-100">
+              <div class="heading-underline h3-line">
+                  <h3 class="mt-0">Introducción</h3>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                      <ul>
+                          <li>Formular consultas contra APIs propias o de terceros durante el transcurso de una aplicación supone registrar procesos, en su mayoría asíncronos, cuya gestión era asumida a través de complejas estructuras de callbacks.</li>
+                          <li>El objeto global Promise (ES6) simplifica esta gestión, encapsulando una operación asíncrona que será resuelta a futuro y que podrá derivar tanto en el valor fruto de su consecución como en el error de un eventual fracaso.</li>
+                          <li>El objeto devuelto es una Promesa <em>consumida</em> mediante un juego de métodos callback ejecutados según un sistema de estados a través de los que se desarrolla la Promesa.</li>
+                          <li>El diseño de este consumo permite planificar la respuesta de la aplicación frente a cada una de sus posibles resoluciones.</li>                          
+                      </ul>
+                  </div>                  
+              </div>
+            </section>
+
+
+
+            <section id="i2" class="bs-docs-section mb-100">
+              <div class="heading-underline h3-line">
+                  <h3 class="mt-0">Declaración</h3>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                      <ul>
+                          <li>El constructor <code class="cmd">new Promise()</code> registra una Promesa en el sistema, argumentando un callback con dos funciones opcionales en forma de parámetros.</li>
+                          <img style="width: 90%; margin-left: 5% !important; display: block" src="src/a3.jpg">
+                          <li>El estado inicial de una Promesa es <strong>pendiente</strong> (<em>pending</em>).</li>
+                          <li>El desarrollo interno de la Promesa pasa por abordar un proceso generalmente asíncrono, que una vez completado se vale de ámbas funciones para actualizar el estado de la Promesa:
+                          <ul>
+                            <li><code class="cmd">resolve</code>: maneja del éxito de la Promesa, argumentando el valor resultante de esta y dotándola del estado <strong>completada</strong> (<em>fulfilled</em>).</li>
+                            <li><code class="cmd">reject</code>: maneja el fracaso de la Promesa, argumentando el error/razón derivado del fallo y dotándola del estado <strong>rechazada</strong> (<em>rejected</em>).</li>
+                            <img src="src/a1.jpg">
+                          </ul>
+                        </li> 
+                        <li>El estado final de una Promesa es <strong>finalizada</strong> (<em>settled</em>), bien tras ser completada o rechazada.</li>                        
+                        <img style="width: 90%; margin-left: 5% !important; display: block" src="src/a9.jpg">
+                      </ul>
+                  </div>                  
+              </div>
+            </section>
+
+
+
+            <section id="i3" class="bs-docs-section mb-100">
+              <div class="heading-underline h3-line">
+                  <h3 class="mt-0">Consumo <img src="src/abrir.png" title="CODIGOS / CONSUMO"></h3>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                      <ul>
+                          <li><em>Consumir</em> una Promesa supone planificar el comportamiento de la aplicación frente a un futuro estado <strong>completado</strong> o <strong>rechazado</strong> de la Promesa.</li>
+                          <li>Esto se realiza mediante el objeto Promise que será retornado una vez quede finalizada.</li>
+                          <img style="width: 90%; margin-left: 5% !important; display: block" src="src/a8.jpg">
+                          <li>El método <code class="cmd">then()</code> se ejecuta tras un cambio de estado en la Promesa, retornando una nueva promesa y controlando así el flujo de datos.</li>
+                          <li><code class="cmd">then()</code> recibe dos funciones en forma de parámetros opcionales:
+                            <ul>
+                              <li>Función de éxito que recibe el valor argumentado en la función <code class="cmd">resolve()</code> de la Promesa.</li>
+                              <li>Función de rechazo que recibe el valor argumentado en la función <code class="cmd">reject()</code> de la Promesa.</li>
+                              <img src="src/a2.jpg">
+                            </ul>
+                          </li>  
+                          <li>Existen alternativas para el callback que gestiona un rechazo en la Promesa: 
+                            <ul>
+                              <li>Concatenando un método <code class="cmd">then()</code> adicional que tome <code>null</code> como primer argumento.</li>  
+                              <img src="src/a5.jpg">                                
+                              <li>Delegando el rechazo en el método <code class="cmd">catch()</code>, que retorna igualmente una promesa.</li>  
+                              <img src="src/a4.jpg">
+                            </ul>
+                          </li>                   
+                      </ul>
+                  </div>                  
+              </div>
+            </section>
+
+
+
+
+
+            <section id="i4" class="bs-docs-section mb-100">
+              <div class="heading-underline h3-line">
+                  <h3 class="mt-0">Concatenación <img src="src/abrir.png" title="CODIGOS / CONCATENACION"></h3>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                      <ul>
+                          <li>Es posible diseñar <em>cadenas</em> de diversas Promesas concatenadas que colaboren asumiendo tareas secuenciales y dependientes entre sí.</li>
+                          <li>La concatenación de métodos <code class="cmd">then()</code> permite diseñar procesos <em>thenables</em> de aspecto lineal.</li>
+                          <img style="width: 90%; margin-left: 5% !important; display: block" src="src/a6.jpg">
+                          <li>El comportamiento frente a una eventual excepción o un rechazo de cualquiera de las Promesas involucradas supone:
+                          <ul>
+                            <li>Omitir el procesamiento de los sucesivos métodos <code class="cmd">then()</code>  presentes en la secuencia.</li>
+                            <li>Si lo hubiera, procesar el primer método <code class="cmd">catch()</code> presente en la secuencia.</li>
+                            <li>Si los hubiera, procesar los sucesivos métodos <code class="cmd">then()</code> presentes en la secuencia.</li>
+                            <img src="src/a7.jpg">
+                          </ul>
+                        </li> 
+                                          
+                      </ul>
+                  </div>                  
+              </div>
+            </section>
+
+
+
+            <section id="i5" class="bs-docs-section mb-100">
+              <div class="heading-underline h3-line">
+                  <h3 class="mt-0">Otros métodos</h3>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                      <ul>
+                          <li><code class="cmd">Promise.resolve(valor)</code> y <code class="cmd">Promise.reject(razon)</code> finalizan una promesa automáticamente completándola o rechazándola respectivamente, mientras que <code class="cmd">Promise.finally(fn)</code> invoca la función argumentada al completar la Promesa, con independencia de su estado resultante. <img src="src/abrir.png" title="CODIGOS / FINALIZACION"></li>
+                          <li><code class="cmd">Promise.all(<em>iterable</em>)</code> <img src="src/abrir.png" title="CODIGOS / COMPOSICION"> registra una única Promesa compuesta que permite controlar diversas Promesas independientes argumentadas como objeto iterable:
+                            <ul>
+                              <li>La Promesa única se completará frente al estado <strong>completado</strong> de todas las argumentadas, retornando un Array de valores devueltos por estas.</li>
+                              <li>La Promesa única se completará frente a una ausencia de valores iterables en su argumento.</li>
+                              <li>La Promesa única se rechazará de manera inmediata frente al estado <strong>rechazado</strong> de cualquiera de las argumentadas.</li>
+                            </ul>
+                          </li>
+                          <li><code class="cmd">Promise.race(<em>iterable</em>)</code> <img src="src/abrir.png" title="CODIGOS / RACE"> registra una única Promesa compuesta que permite controlar diversas Promesas independientes argumentadas como objeto iterable:
+                            <ul>
+                              <li>La Promesa única finalizará frente al primer estado <strong>completado</strong> o <strong>rechazado</strong> de cualquiera de las argumentadas, retornando el valor o razón de rechazo que resulte de esta.</li>
+                            </ul>
+                          </li>                                          
+                      </ul>
+                  </div>                  
+              </div>
+            </section>
+
+
+
+
+            <section id="i6" class="bs-docs-section mb-100">
+              <div class="heading-underline h3-line">
+                  <h3 class="mt-0">FYI</h3>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                    <ul style="padding: 0">
+                      <li style="list-style: none">
+                        <ul>
+                          <li>Una Promesa solo puede alcanzar el estado <strong>finalizado</strong> una vez, bien haya sido completada o rechazada, siendo el valor retornado por esta inmutable.</li>
+                          <li>Las Promesas se ejecutan de manera no bloqueante: su presencia en el flujo de ejecución no supone detenerlo hasta que sean resueltas.</li>
+                          <li>Consumir Promesas a través de funciones que retornan objetos Promise da lugar a procesos <em>thenables</em> de alta legibilidad, mantenibilidad, escalabilidad, modularización e identificabilidad.</li>
+                          <li>El rechazo de una Promesa debe generar, preferiblemente, un error en tiempo de ejecución <code class="cmd">Error()</code>  permitiendo así el uso de herramientas de depuración.</li>
+                          <li>El callback <code class="cmd">catch()</code> para gestionar Promesas rechazadas no es más que edulcorante sintáctico para <code class="cmd">then(undefined, func)</code>, pero permite crear cadenas complejas de Promesas que deriven en un comportamiento u otro según la secuencia en la que resulten rechazadas.</li>
+                          <li>Además del rechazo explícito mediante <code class="cmd">reject()</code>, una excepción en cualquier punto del constructor o de sus callbacks supondrá su rechazo implícito.</li>
+                          <li>La gestión de procesos asíncronos dependientes en ES5 suponía transferir callbacks a funciones dando lugar a complejas arquitecturas (<em><a href="https://cdn-images-1.medium.com/max/823/1*Co0gr64Uo5kSg89ukFD2dw.jpeg" target="_blank">callback hells</a></em>), mientras que la simplicidad de las Promesas reside en asociar los callbacks al propio objeto retornado. Controlar procesos asíncronos a través de arquitecturas <em>thenables</em> da lugar a un código de aspecto sincrónico y simplificado donde apenas se observa identación.</li>
+                      </ul>
+                      </li>
+                    </ul>
+                      
+                  </div>                  
+              </div>
+            </section>
+
+
+
+
+            <section id="i7" class="bs-docs-section mb-100">
+              <div class="heading-underline h3-line">
+                  <h3 class="mt-0">ES7 <img src="src/abrir.png" title="CODIGOS / ES7"></h3>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                      <ul>
+                          <li>ES7 integra dos alternativas ausentes de callbacks para la gestión de Promesas dando lugar a sistemas que se asemejan a una combinación de generadores y promesas.
+                            <ul>
+                              <li>Funciones asíncronas:
+                                <ul>
+                                  <li>Precedidas por la palabra reservada <code class="cmd">async</code> en su declaración, retornan una Promesa.</li>
+                                  <li>Cuando la función asíncrona retorna un valor, la Promisa se resolverá con el valor devuelto.</li>
+                                  <li>Cuando la función asíncrona retorna una excepción o error, la Promesa se rechazará con el valor devuelto.</li>
+                                  <li>Es posible definir funciones asíncronas a través de una expresión de función.</li>
+                                </ul>                                
+                              </li>
+                              <li>Operador <code class="cmd">await</code>:
+                              <ul>
+                                <li>Válido en el interior de funciones asíncronas, preceden a una Promesa pausando la ejecución de la función hasta su resolución.</li>
+                                <li>Una vez resuelta la Promesa adopta el valor retornado por esta reanudando la ejecución de la función.</li>
+                              </ul>
+                            </ul>
+                          </li>                          
+                      </ul>
+                  </div>                  
+              </div>
+            </section>
+
+
+
+
+
+
+
+          </main>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="src/jquery-1.11.2.min.js"></script>
+  <script src="src/bootstrap.min.js"></script>
+  <script src="src/jquery.nav.js"></script>
+  <script src="src/simplebar.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<title>EJEMPLO</title>
+	<meta charset="utf-8">
+
+</head>
+
+<body>
+
+	<script>
+
+
+		const promesa = valor => new Promise(resolve => { setTimeout(resolve, 2000, valor) })
+
+		const asincrona = async function (valor) {
+
+			try {
+				const prom1 = await promesa('Primera Promesa ');
+				const prom2 = await promesa('Segunda Promesa ');
+				console.log(valor + prom1 + prom2);
+			}
+
+			catch (error) {
+				console.log('Promesa fallida: ', error);
+			}
+		}
+
+		asincrona('Función asíncrona ');
+
+
+
+		/*
+
+		// Alternativa
+
+		const asincrona = async function(valor) {
+
+			try {
+
+				const prom1 = promesa('Primera Promesa ');
+				const prom2 = promesa('Segunda Promesa ');
+				console.log(valor + await prom1 + await prom2);
+			}
+
+			catch (error) {
+
+				console.log('Promesa fallida: ', error);
+			}
+		}
+
+		*/
+
+
+	</script>
+
+</body>
+
+</html>
