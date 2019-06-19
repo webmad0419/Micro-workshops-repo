@@ -1,0 +1,22 @@
+.task, .done-tasks {
+  margin:20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  font-size: 18px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.done-tasks {
+  font-size: 18px;
+
+  li {
+    margin-bottom: 10px;
+  }
+}

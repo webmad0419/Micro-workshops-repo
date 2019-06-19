@@ -1,0 +1,49 @@
+.task {
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    transition: all 0.75s;
+
+    .buttons{
+        margin: 0;
+        padding: 0;
+    }
+    
+    .buttons button {
+        margin-right: 5px;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    &--dark {
+        background: black;
+        color: white;
+
+        &:hover {
+            background: #c00;
+        }
+    }
+
+    &--normal {
+        $nColor: #63cdda;
+        background-color: $nColor;
+        color: black;
+
+        &:hover {
+            background: darken($nColor, 20);
+        }
+    }
+
+    &--true {
+        background-color: #63da6b !important;
+
+        .task-data {
+            text-decoration: line-through;
+        }
+    }
+}
+
